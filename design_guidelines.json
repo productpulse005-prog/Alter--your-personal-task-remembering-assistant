@@ -1,0 +1,162 @@
+{
+  "app_name": "Alter",
+  "personality": "3 Editorial Mobile LIGHT",
+  "personality_one_liner": "A calm, thoughtful, and highly refined personal AI concierge that treats your memories and tasks like a beautifully curated journal.",
+  "color": {
+    "surface": "#FDFBF7",
+    "onSurface": "#1C1B1A",
+    "surfaceSecondary": "#F4F1EA",
+    "onSurfaceSecondary": "#3A3835",
+    "surfaceTertiary": "#EAE5DB",
+    "onSurfaceTertiary": "#4A4744",
+    "surfaceInverse": "#2C2B29",
+    "onSurfaceInverse": "#FDFBF7",
+    "brand": "#5E6D55",
+    "onBrand": "#FFFFFF",
+    "brandPrimary": "#5E6D55",
+    "onBrandPrimary": "#FFFFFF",
+    "brandSecondary": "#7A8B70",
+    "onBrandSecondary": "#FFFFFF",
+    "brandTertiary": "#E3E7DE",
+    "onBrandTertiary": "#2E3A26",
+    "success": "#4A6B53",
+    "onSuccess": "#FFFFFF",
+    "warning": "#B68B42",
+    "onWarning": "#FFFFFF",
+    "error": "#A34A41",
+    "onError": "#FFFFFF",
+    "info": "#5E6D55",
+    "onInfo": "#FFFFFF",
+    "border": "#E8E4D9",
+    "borderStrong": "#D1CBB8",
+    "divider": "#E8E4D9",
+    "muted": "#787570"
+  },
+  "typography": {
+    "displayFontFamily": "Fraunces_400Regular",
+    "textFontFamily": "DMSans_400Regular",
+    "scale": {
+      "sm": 12,
+      "base": 14,
+      "lg": 16,
+      "xl": 20,
+      "2xl": 24
+    }
+  },
+  "spacing": {
+    "rule": "Use magazine-like spacing rhythms with generous vertical breathing room. Let typography and whitespace carry the hierarchy. Elements should feel intentionally placed, not crammed.",
+    "xs": 4,
+    "sm": 8,
+    "md": 12,
+    "lg": 16,
+    "xl": 24,
+    "2xl": 32,
+    "3xl": 48
+  },
+  "radius_tokens": {
+    "sm": 4,
+    "md": 8,
+    "lg": 12,
+    "pill": 999
+  },
+  "shadow_tier": 0,
+  "navigation": "bottom_tabs",
+  "icon_set": "Feather",
+  "glassmorphism": {
+    "enabled": false,
+    "do's": [
+      "Avoid glassmorphism. Use solid surfaces and subtle borders to separate content."
+    ],
+    "dont's": [
+      "Do not use blur or frosted glass. The Editorial personality relies on crisp, matte, paper-like surfaces."
+    ]
+  },
+  "platform_libraries": {
+    "glass": {
+      "ios": "expo-glass-effect",
+      "android": "expo-blur",
+      "low_end_android_fallback": "solid surfaceSecondary"
+    },
+    "image": "expo-image",
+    "blur": "expo-blur",
+    "bottom_sheet": "@gorhom/bottom-sheet",
+    "animation": "react-native-reanimated",
+    "gesture": "react-native-gesture-handler"
+  },
+  "screens": [
+    {
+      "name": "Dashboard (Home)",
+      "purpose": "Act as a calming focal point and springboard for resuming interrupted tasks, quick AI capture, and rediscovering memories.",
+      "states": {
+        "loading": "Centered minimalist spinner using brandPrimary color.",
+        "empty": "Not applicable for dashboard after initial setup.",
+        "error": "Polite error text in textFontFamily with a simple 'Try again' text button."
+      },
+      "layout": "Header: User Profile accessible via a subtle circular initials avatar. Hero Section: Large personalized greeting in Fraunces serif (e.g., 'Good morning, Alex.'), layered over a soft 15-20% opacity abstract sage green background image. Quick Capture: A prominent inline text input field immediately below the greeting, styled like a spotlight search for quick brain-dumps to the AI. Content Sections: 'Resume' (active task summary), 'Upcoming Tasks' (next 2-3 items), and 'Rediscover' (a horizontal scroll or single 'Memory of the day' card). Sections are separated by generous '2xl' or '3xl' vertical spacing and subtle divider lines."
+    },
+    {
+      "name": "Chat",
+      "purpose": "A persistent, threaded conversation with Alter, feeling like a direct message with a highly capable, calm assistant.",
+      "states": {
+        "loading": "Skeleton lines for recent messages.",
+        "empty": "A clean view with the 'workspace_aesthetic' background image heavily blurred, a calm greeting, and 2-3 suggested conversation starters.",
+        "error": "Small inline warning bubble above the text input: 'Alter couldn't be reached.'"
+      },
+      "layout": "Standard chat interface but with editorial spaciousness. Chat bubbles should use surfaceSecondary (for AI) and surfaceInverse (for User). No bright primary colors for bubbles. The input field is docked at the bottom within a KeyboardAvoidingView container. Include a subtle header button or top sheet to access past conversation history."
+    },
+    {
+      "name": "Memory",
+      "purpose": "A searchable, beautifully organized archive of user-controlled knowledge across categories.",
+      "states": {
+        "loading": "Skeleton cards representing memory entries.",
+        "empty": "An elegant 'notebook' image illustration, a short sentence ('Your journal is empty.'), and a primary CTA 'Log a memory'.",
+        "error": "Readable message with a 'Retry' button."
+      },
+      "layout": "Top: A clean search bar followed by a horizontal scroll of filter chips (All, Personal, People, Goals, etc.). Body: A vertical list of memories. Memories should be styled as refined 'cards' or dictionary entries with Fraunces titles and DMSans body text, with a subtle border and no shadow. A floating action button (FAB) in brandPrimary for manual entry."
+    },
+    {
+      "name": "Tasks",
+      "purpose": "Decision-driven task management focusing on what needs attention right now.",
+      "states": {
+        "loading": "Skeleton rows.",
+        "empty": "A minimal graphic, 'No tasks at the moment.', and a CTA to add one.",
+        "error": "Readable message with a 'Retry' button."
+      },
+      "layout": "Top: Filter chips for Status (To Do, In Progress, Completed). Body: Tasks grouped by Priority (High, Medium, Low) using clear section headers. Task rows should have a minimum 56pt tappable height, featuring a checkbox, title, and optional due date. A FAB in brandPrimary to add new tasks."
+    },
+    {
+      "name": "Profile",
+      "purpose": "Manage identity and AI preferences.",
+      "states": {
+        "loading": "Skeleton rows.",
+        "empty": "N/A",
+        "error": "N/A"
+      },
+      "layout": "Clean, simple list of settings rows. Each row uses a tinted icon container (brandTertiary rounded square with a Feather icon inside). Sections for Display Name, Description, AI Preferences, Response Style, and Sign Out."
+    }
+  ],
+  "images": {
+    "dashboard_hero_bg": {
+      "url": "https://images.unsplash.com/photo-1564352969906-8b7f46ba4b8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzd8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMHNhZ2UlMjBncmVlbiUyMGNlcmFtaWMlMjB0ZXh0dXJlJTIwc29mdCUyMGxpZ2h0aW5nfGVufDB8fHx8MTc5Mjc0ODc5Nnww&ixlib=rb-4.1.0&q=85",
+      "alt": "Abstract soft sage green ceramic texture"
+    },
+    "chat_empty_bg": {
+      "url": "https://images.unsplash.com/photo-1449247709967-d4461a6a6103?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAxODF8MHwxfHNlYXJjaHwxfHxjYWxtJTIwbWluaW1hbGlzdCUyMHdvcmtzcGFjZSUyMGFlc3RoZXRpYyUyMG1vcm5pbmclMjBsaWdodHxlbnwwfHx8fDE3OTI3NDg3OTZ8MA&ixlib=rb-4.1.0&q=85",
+      "alt": "Calm minimalist workspace with white wooden desk"
+    },
+    "memory_empty_state": {
+      "url": "https://images.pexels.com/photos/4087568/pexels-photo-4087568.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "alt": "Elegant white desk flat lay with an empty notebook and stationery"
+    }
+  },
+  "instructions_to_main_agent": [
+    "Follow the '3 Editorial Mobile LIGHT' personality. The app should feel like a high-end magazine or a beautifully curated personal journal, not a typical SaaS dashboard. No heavy shadows, no glassmorphism, no blue/purple colors.",
+    "Typography is critical: Use Fraunces (serif) for large headings, greetings, and memory titles. Use DM Sans (sans-serif) for body text, labels, buttons, and navigation. Limit weights to 400 and 500.",
+    "For the Dashboard, implement a 'Quick Capture' input directly below the greeting. It should serve as a low-friction entry point to chat with Alter.",
+    "For the Memory and Task screens, utilize the 'card' or 'entry' styling with subtle 1px borders and 0 shadow. Rely on generous padding (lg, xl) instead of visual containers where possible.",
+    "In Chat, user bubbles should be dark (surfaceInverse) with light text, while AI bubbles should be light (surfaceSecondary) with dark text. This reinforces the 'thoughtful assistant' dynamic.",
+    "Ensure the bottom Tab Navigator uses Feather icons, with active states being clearly distinct (e.g., brandPrimary color).",
+    "Whenever displaying background images, ensure an appropriate gradient-to-dark or gradient-to-light scrim is used to guarantee text readability (WCAG AA).",
+    "For empty states, utilize the provided images inside a clean, centered layout with a primary call to action."
+  ]
+}
